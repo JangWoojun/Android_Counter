@@ -29,4 +29,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt("number", number)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        number = savedInstanceState.getInt("number")
+        findViewById<TextView>(R.id.number_text_view).text = number.toString()
+        super.onRestoreInstanceState(savedInstanceState)
+    }
+
 }
